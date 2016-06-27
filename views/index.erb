@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="time">
+      <h1><%= "#{@minutes} minutes, #{@seconds} seconds" %><h1>
+    </div>
+    <div id="map"></div>
+    <script>
+      var map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 53.4444, lng: -113.4909},
+          zoom: 11
+        });
+
+        var path = [
+          <%=
+            @waypoints.map do |waypoint|
+              "new google.maps.LatLng(#{waypoint})"
+            end.join(',');
+          %>
+        ]
+        var pathOptions = {
+          strokeColor: "#6666FF",
+          strokeWeight: 1,
+          path: path,
+          icons:[
+            {
+              icon: {
+                path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
+                scale: 1
+              },
+              offset: "20px",
+              repeat: "70px"
+            }
+          ]
+        }
+
+        var line = new google.maps.Polyline(pathOptions)
+
+        line.setMap(map)
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
+  </body>
+</html>
