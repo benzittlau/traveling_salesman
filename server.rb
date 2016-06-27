@@ -14,7 +14,7 @@ get '/' do
 
   # Initialize the router
   router_type = params.fetch('router', 'naive')
-  require "./routers/#{router_type}_router.rb"
+  load "./routers/#{router_type}_router.rb"
   router = Object.const_get("#{router_type.capitalize}Router").new(locations)
 
   router.route

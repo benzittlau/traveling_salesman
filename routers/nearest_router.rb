@@ -5,7 +5,7 @@ class NearestRouter < BaseRouter
 
     next_location = remaining_locations.shift
 
-    while(remaining_locations.present?) do
+    while(!remaining_locations.empty?) do
       @routed_locations << next_location
 
       next_location = shortest_destination(next_location, remaining_locations)
