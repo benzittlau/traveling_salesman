@@ -1,2 +1,2 @@
-address_sets/benchmark*
+address_sets/*benchmark*
 .env

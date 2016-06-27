@@ -8,12 +8,12 @@ require './routers/base_router.rb'
 
 get '/' do
   # Get the locations
-  set = params.fetch(:set, 'subway')
-  mode = params.fetch(:mode, 'dev')
+  set = params.fetch('set', 'subway')
+  mode = params.fetch('mode', 'dev')
   locations = fetch_locations(set, mode)
 
   # Initialize the router
-  router_type = params.fetch(:router, 'naive')
+  router_type = params.fetch('router', 'naive')
   require "./routers/#{router_type}_router.rb"
   router = Object.const_get("#{router_type.capitalize}Router").new(locations)
 

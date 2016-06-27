@@ -21,6 +21,7 @@ class Here
 
     response = get_url("https://matrix.route.cit.api.here.com/routing/7.2/calculatematrix.json", options)
 
+    binding.pry unless response.dig("response", "matrixEntry")
     response.dig("response", "matrixEntry").map{|e| e.dig("summary", "travelTime")}
   end
 
