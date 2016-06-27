@@ -5,6 +5,6 @@ Dotenv.load
 require './lib/processor'
 require './lib/here'
 
-mode = "dev"
+mode = "benchmark"
 Processor.sample(mode)
 Processor.build_matrixes(mode)
