@@ -13,6 +13,9 @@ Requests must run within 30 seconds.  If it can be shown to run within 30 second
 
 `NOTE: It is assumed that you will act in good faith and provide your own solution, not an algorithm found through Google.`
 
+## Submission
+Your submissions should be submitted in the form of a PR with your branch.  This will allow quick and easy checking that the only modification is the addition of your router.
+
 ## Installation
 ```
 git clone git@github.com:GetJobber/traveling_salesman.git
