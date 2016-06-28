@@ -15,6 +15,12 @@ class SortingRouter < BaseRouter
       next_location = shortest_destination(next_location, remaining_locations)
       remaining_locations.delete(next_location)
     end
+
+    @routed_locations << next_location
+
+    next_location = shortest_destination(next_location, remaining_locations)
+    remaining_locations.delete(next_location)
+
   end
 
   def shortest_destination(source, remaining_destinations)
