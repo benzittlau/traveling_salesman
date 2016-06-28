@@ -1,6 +1,8 @@
 # The Traveling Salesman
 This is a sandbox app to experiment around with solutions to the traveling salesman problem.
 
+![Read more words!](images/Simple_Map.jpg)
+
 ## Datasets
 There are two datasets, subway, and starbucks, which are randomly selected 30 locations out of all locations for the two franchises in Edmonton.  The included "dev" sets should be used for development, but a *different* random sample will be used to benchmark the solutions.  Don't overly optimize for the specific dataset as the test will be different!
 
