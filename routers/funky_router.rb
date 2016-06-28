@@ -31,6 +31,7 @@ class FunkyRouter < BaseRouter
       next_loc = shortest_destination(next_loc, remaining_locations)
       remaining_locations.delete(next_loc)
     end
+    @routed_locations << next_loc
   end
 
   def shortest_destination(source, remaining)
