@@ -29,7 +29,22 @@ class ChrisRouter < BaseRouter
 
     threads.each(&:join)
     best_second_point = second_point.sort_by{|point| point[:drive_time] }.first
-    @routed_locations = best_second_point[:routed_locations]
+
+    threads = []
+    third_point = [];
+    new_locations = best_second_point[:routed_locations].clone
+    new_locations.delete(best_second_point[:first_point])
+
+    new_locations.each do |third_location|
+      threads << Thread.new do
+        third_point << getInfoAboutStartingPoint(third_location, new_locations.clone)
+      end
+    end
+
+    threads.each(&:join)
+    best_third_point = third_point.sort_by{|point| point[:drive_time] }.first
+
+    @routed_locations = best_third_point[:routed_locations]
 
   end
 
