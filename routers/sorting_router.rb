@@ -5,7 +5,7 @@ class SortingRouter < BaseRouter
     @routed_locations = []
     remaining_locations = @locations.clone
 
-    remaining_locations.sort_by! { |x| Math.sqrt(x.latitude.to_f * x.latitude.to_f) + Math.sqrt(x.longitude.to_f * x.longitude.to_f) }
+    remaining_locations.sort_by! { |x| Math.sqrt(x.latitude.to_f * x.latitude.to_f + x.longitude.to_f * x.longitude.to_f) }
 
     next_location = remaining_locations.shift
 
