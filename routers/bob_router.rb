@@ -17,6 +17,8 @@ class BobRouter < BaseRouter
       next_location = get_next_location(next_location, remaining_locations)
       remaining_locations.delete(next_location)
     end
+
+    @routed_locations << next_location
   end
 
   def get_next_location(location, remaining_locations)
